@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan QR Code | Teen Hub</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #070913;
+            color: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Video (Same as your main page) */
+        #bgVideo {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            pointer-events: none;
+            filter: brightness(0.8);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* QR Container */
+        .qr-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 360px;
+            background: rgba(18, 22, 41, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 28px;
+            padding: 40px 24px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 13.5px;
+            color: #94A3B8;
+            margin-bottom: 24px;
+        }
+
+        .qr-box {
+            background: #FFFFFF;
+            padding: 16px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .qr-box img {
+            width: 180px;
+            height: 180px;
+            display: block;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Optional: Same background video -->
+    <video id="bgVideo" autoplay loop muted playsinline>
+        <source src="beach.mp4" type="video/mp4">
+    </video>
+
+    <div class="qr-container">
+        <h1>Scan to Open Hub</h1>
+        <p>Point your phone camera here to visit the mobile portal</p>
+        
+        <div class="qr-box">
+            <!-- REPLACE THE URL BELOW with your actual Netlify live URL -->
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://your-hub.netlify.app" alt="Hub QR Code">
+        </div>
+    </div>
+
+</body>
+</html>
